@@ -2,12 +2,14 @@ import 'dart:convert';
 import 'package:practice/repository/response.dart';
 import 'package:http/http.dart' as http;
 
+import 'api_key.dart';
+
 class ChatRepository {
   Future<Response?> makeRequest({required String question}) async {
     final url = Uri.parse('https://api.openai.com/v1/completions');
     final headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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'
+      'Authorization': 'Bearer $openAIAPIKey'
     };
     final data = {
       'prompt': question,
