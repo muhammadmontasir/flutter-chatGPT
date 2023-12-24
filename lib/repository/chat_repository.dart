@@ -11,13 +11,15 @@ class ChatRepository {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $openAIAPIKey'
     };
+    print(headers);
     final data = {
       'prompt': question,
-      'model': 'test-davinci-002',
+      'model': 'text-davinci-002',
       'temperature': 0.5,
       'max_tokens': 50
     };
-    final response = await http.post(url, headers: headers, body: jsonEncode(data));
+    final response = await http.post(
+        url, headers: headers, body: jsonEncode(data));
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
       final text = jsonData['choices'][0]['text'];

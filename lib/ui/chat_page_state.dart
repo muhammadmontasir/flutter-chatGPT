@@ -1,4 +1,7 @@
-@freeezed
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'chat_page_state.freezed.dart';
+
+@freezed
 class ChatPageState with _$ChatPageState {
   factory ChatPageState({
       @Default([]) List<Message> messages,
